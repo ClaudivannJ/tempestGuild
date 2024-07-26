@@ -1,0 +1,43 @@
+:root{
+    --gradient-color: linear-gradient(45deg, #ff8a00, #e52e71);
+}
+.containerButton{
+    width: 90%;
+    margin: 6px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* flex-direction: row; */
+}
+
+button{
+    width:50%;
+    height: 40px;
+    border-radius: 8px;
+    /* background-color: var(--main-color); */
+    background-image: linear-gradient(#b94ff9, #532dfd);
+
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 400;
+    /* font-family: 'poppins'; */
+}
+.span{
+    width: 50%;
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.text{
+    width: 100%;
+    color: var(--color-white);
+    font-size: 12px;
+    font-weight: 400;
+}
+.buttonRegister{
+    font-size: 14px;
+    font-weight: bold;
+    color: #b1aec0;
+}

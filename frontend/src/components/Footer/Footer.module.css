@@ -1,0 +1,36 @@
+.footer{
+    position: fixed;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+justify-content: end;
+align-items: end;
+}
+.copy{
+    margin-bottom: 4px;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    
+    color: #ccc;
+}
+
+.span{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 10px;justify-content: center;
+}
+
+.a{
+    color: rgb(185, 183, 178);
+    font-size: 14px;
+    font-weight: bold;
+    list-style: none;
+    text-decoration: none;
+    margin-left: 6px;
+
+}
