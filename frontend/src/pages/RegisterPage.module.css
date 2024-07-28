@@ -1,0 +1,14 @@
+:root{
+    --gray-color:#7a7979;
+    --main-color: #b94ff9;
+    --color-white: #fff;
+    --gradient-color: linear-gradient(45deg, #ff8a00, #e52e71);
+}
+.container {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

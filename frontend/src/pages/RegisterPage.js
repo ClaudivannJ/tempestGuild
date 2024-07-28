@@ -1,11 +1,15 @@
 import React from 'react';
-import Register from '../components/Register';
+import Register from '../components/Register/Register';
+import Footer from '../components/Footer/Footer';
+import Logotipo from '../components/Logotipo/Logotipo';
+import styles from './RegisterPage.module.css'
 
 const RegisterPage = () => {
   return (
-    <div>
-      <h1>Register</h1>
+    <div className={styles.container}>
+      <Logotipo/>
       <Register />
+      <Footer/>
     </div>
   );
 };

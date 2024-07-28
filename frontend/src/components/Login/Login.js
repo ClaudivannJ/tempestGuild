@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './Login.module.css'
-import Logotipo from '../Logotipo/Logotipo';
-import Footer from '../Footer/Footer';
 import ContainerButton from './ContainerButton/ContainerButton';
 
 const Login = () => {
@@ -22,8 +20,6 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <Logotipo />
       <form onSubmit={handleSubmit}>
         <div className={styles.boxInput}>
 
@@ -43,12 +39,14 @@ const Login = () => {
           />
           <label className={`${styles.floatingLabel} ${password ? styles.filled : ''}`}>Password:</label>
         </div>
-        <ContainerButton/>
-      
-      </form>
-      <Footer/>
-    </div>
+        <ContainerButton
+        buttonText={'Entrar'}
+        linkText={"Ainda não possui uma conta?"}
+        buttonTextLinkTo={"Cadastre-se"}
+        linkTo={'/register'}
 
+        />    
+      </form>
   );
 };
 

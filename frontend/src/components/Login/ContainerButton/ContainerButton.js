@@ -1,11 +1,13 @@
+import {Link} from 'react-router-dom'
+
 import styles from './ContainerButton.module.css';
-const ContainerButton = () => {
+const ContainerButton = ({buttonText, linkText, linkTo, buttonTextLinkTo}) => {
     return(
         <div className={styles.containerButton}>
-          <button type="submit">Entre</button>
+          <button type="submit">{buttonText}</button>
           <span className={styles.span}>
-            <p className={styles.text} > Ainda não possui uma conta?</p>
-            <a className={styles.buttonRegister} href="#">Cadastre-se</a>
+            <p className={styles.text} > {linkText}</p>
+            <li className={styles.buttonRegister} href="#"><Link to={linkTo}>{buttonTextLinkTo}</Link></li>
           </span>
           
         </div>
