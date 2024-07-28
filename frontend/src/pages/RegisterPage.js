@@ -7,7 +7,7 @@ import styles from './RegisterPage.module.css'
 const RegisterPage = () => {
   return (
     <div className={styles.container}>
-      <Logotipo/>
+      <Logotipo variant={"form"}/>
       <Register />
       <Footer/>
     </div>

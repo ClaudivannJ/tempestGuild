@@ -2,6 +2,8 @@
 :root {
   --main-color: #b94ff9;
   --color-white: #fff;
+  --gray-color:#7a7979;
+  --bg-color:rgb(15, 25, 35);
   --secondary-color: #4f4ff9;
   --accent-color: #f94f9e;
   --color-light-gray: #f0f0f0;
@@ -33,4 +35,5 @@ h1, h2, h3, h4, h5, h6, p{
   padding: 0;
   box-sizing: border-box;
   background-color: rgb(15, 25, 35);
+  background-color: rgb(18, 19, 29);
 }

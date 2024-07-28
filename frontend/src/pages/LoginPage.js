@@ -7,7 +7,7 @@ import Footer from '../components/Footer/Footer';
 const LoginPage = () => {
   return (
     <div className={styles.container}>
-      <Logotipo/>
+      <Logotipo variant={"form"}/>
       <Login />
       <Footer/>
     </div>
