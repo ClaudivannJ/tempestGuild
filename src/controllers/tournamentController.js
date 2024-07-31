@@ -1,6 +1,6 @@
-const Tournament = require('../models/tournament');
+const Tournament = require('../models/tournamentModel');
 
-const createTournament = async (req, res) => {
+exports.createTournament = async (req, res) => {
   const { name, description, date } = req.body;
   try {
     const newTournament = new Tournament({ name, description, date });
@@ -11,7 +11,7 @@ const createTournament = async (req, res) => {
   }
 };
 
-const getTournaments = async (req, res) => {
+exports.getTournaments = async (req, res) => {
   try {
     const tournaments = await Tournament.find().populate('participants');
     res.status(200).json(tournaments);
@@ -19,5 +19,3 @@ const getTournaments = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
-
-module.exports = { createTournament, getTournaments };

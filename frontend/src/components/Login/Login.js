@@ -4,31 +4,38 @@ import styles from './Login.module.css'
 import ContainerButton from './ContainerButton/ContainerButton';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
-
+  const [errorMessage, setErrorMessage] = useState('');
   const handleSubmit = async (e) => {
+    console.log(userId, password);
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/users/login', {
-        email, password
+      const response = await axios.post('http://localhost:3000/api/login', {
+        userId, password
       });
+
+      console.log(userId, password)
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('username', response.data.username);
+    
+      window.location.href = '/';
       console.log('User logged in:', response.data);
     } catch (error) {
-      console.error('Error logging in:', error);
-    }
-  };
+      console.log(error);
+  }
+};
 
   return (
       <form onSubmit={handleSubmit}>
         <div className={styles.boxInput}>
 
           <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="number"
+            value={userId}
+            onChange={(e) => setUserId(e.target.value)}
           />
-          <label className={`${styles.floatingLabel} , ${email ? styles.filled : ''}`}>Usuário ID:</label>
+          <label className={`${styles.floatingLabel} , ${userId ? styles.filled : ''}`}>Usuário ID:</label>
         </div>
         <div className={styles.boxInput}>
 

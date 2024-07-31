@@ -1,9 +1,14 @@
-const User = require('../models/user');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const User = require('../models/userModel');
 
-const registerUser = async (req, res) => {
-  const { username, email, password } = req.body;
+exports.registerUser = async (req, res) => {
+  const { userId, username, password, numberPhone } = req.body;
+
+  console.log('Received login request:', { userId,username, password, numberPhone });
   try {
-    const newUser = new User({ username, email, password });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ userId, username, password: hashedPassword, numberPhone });
     await newUser.save();
     res.status(201).json(newUser);
   } catch (error) {
@@ -11,17 +16,30 @@ const registerUser = async (req, res) => {
   }
 };
 
-const loginUser = async (req, res) => {
-  const { email, password } = req.body;
+exports.loginUser = async (req, res) => {
+  const { userId, password } = req.body;
+  console.log('Received login request:', { userId, password });
+
   try {
-    const user = await User.findOne({ email, password });
+    const user = await User.findOne({ userId });
     if (!user) {
+      console.log('User not found');
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      console.log('Password mismatch');
+      console.log(password, user.password)
       return res.status(400).json({ message: 'Invalid credentials' });
     }
-    res.status(200).json(user);
+
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '3d' });
+    console.log('Login successful:', { token, username: user.username });
+
+    res.json({ token, username: user.username });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    console.log('Server error:', error);
+    res.status(500).json({ message: 'Server error' });
   }
 };
-
-module.exports = { registerUser, loginUser };

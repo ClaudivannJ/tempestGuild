@@ -6,9 +6,7 @@ const HomePage = () => {
         <div className={styles.homePage}>
             <Header/>
             <main>
-            <h3 className={styles.textWelcome}>BEM-VÍNDO</h3> 
-               <p className={styles.username}>TP DaSensi</p>
-               
+         
             </main>
     </div>
     )

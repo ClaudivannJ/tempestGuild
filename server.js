@@ -1,22 +1,25 @@
+// server.js
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT ;
 
 // Middleware
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use('/api/users', require('./src/routes/userRoutes'));
-app.use('/api/tournaments', require('./src/routes/tournamentRoutes'));
+const userRoutes = require('./src/routes/userRoutes');
+const tournamentRoutes = require('./src/routes/tournamentRoutes');
+
+// Use routes
+app.use(userRoutes);
+app.use(tournamentRoutes);
 
 // Connect to database
 mongoose.connect(process.env.MONGO_URI, {
-
 }).then(() => {
   console.log('Connected to MongoDB');
 }).catch((err) => {

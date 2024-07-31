@@ -2,7 +2,7 @@
 header{
     width: 100vw;
     height: 70px;
-    padding: 10px 20px;
+    padding: 10px 0;
     display: flex;
     text-align: center;
     align-items: center;
@@ -17,4 +17,27 @@ header{
     /* background-clip: content-box, border-box; */
 }
 
+.box{
 
+}
+
+.boxUsername{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* justify-content: space-between; */
+}
+
+.textWelcome{
+    color: var(--color-white);
+    font-size: 12px;
+    font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+}
+.username{
+    margin-left: 6px;
+    color: var(--main-color);
+    font-size: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-style: italic;
+}

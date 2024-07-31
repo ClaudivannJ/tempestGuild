@@ -5,15 +5,15 @@ import ContainerButton from '../Login/ContainerButton/ContainerButton';
 
 const Register = () => {
   const [username, setUsername] = useState('');
-  const [userID, setUserID] = useState('');
+  const [userId, setUserID] = useState('');
   const [password, setPassword] = useState('');
-  const [NumberWhatsapp, SetNumberWhatsapp] = useState('');
+  const [numberPhone, setNumberPhone] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/users/register', {
-        userID, username, password
+      const response = await axios.post('http://localhost:3000/api/register', {
+        userId, username, password, numberPhone
       });
       console.log('User registered:', response.data);
     } catch (error) {
@@ -22,15 +22,15 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.container}>
+
     <form onSubmit={handleSubmit}>
     <div className={styles.boxInput}>
       <input
         type="number"
-        value={userID}
+        value={userId}
         onChange={(e) => setUserID(e.target.value)}
       />
-      <label className={`${styles.floatingLabel} ${userID ? styles.filled : ''}`}>Usuário ID:</label>
+      <label className={`${styles.floatingLabel} ${userId ? styles.filled : ''}`}>Usuário ID:</label>
       </div>
       <div className={styles.boxInput}>
       <input
@@ -51,11 +51,11 @@ const Register = () => {
       <div className={styles.boxInput}>
       <input
         type="number"
-        value={NumberWhatsapp}
-        onChange={(e) => SetNumberWhatsapp(e.target.value)}
+        value={numberPhone}
+        onChange={(e) => setNumberPhone(e.target.value)}
       />
-      <label className={`${styles.floatingLabel} ${NumberWhatsapp ? styles.filled : ''}`}>Whatsapp:</label>
-      </div>i
+      <label className={`${styles.floatingLabel} ${numberPhone ? styles.filled : ''}`}>Whatsapp:</label>
+      </div>
       <ContainerButton
         buttonText={'Cadastrar'}
         linkText={"Já possui uma conta?"}
@@ -64,7 +64,6 @@ const Register = () => {
 
         />    
     </form>
-    </div>
   );
 };
 
