@@ -7,11 +7,11 @@ form{
     position: relative;
     width: 90%;
     height: 40px;
-    margin: 30px auto;
+    margin: 15px auto;
 
 }
 
-input{
+.input{
     width: 100%;
     margin: 6px auto;
     height: 40px;
