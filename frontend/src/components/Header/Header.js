@@ -15,16 +15,16 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.box}>
-            <Logotipo variant={"header"}/>
-            <div className={styles.boxUsername}>
-                <h3 className={styles.textWelcome}>BEM-VÍNDO</h3> 
-                <p className={styles.username}>{username}</p>
-            </div>
+                <Logotipo variant={"header"} />
+                <div className={styles.boxUsername}>
+                    <h3 className={styles.textWelcome}>BEM-VÍNDO</h3>
+                    <p className={styles.username}>{username}</p>
+                </div>
             </div>
             <MenuIcon isOpen={isMenuOpen} toggleMenu={toggleMenu} />
             <Menu isOpen={isMenuOpen} />
 
-            
+
         </header>
     )
 }
