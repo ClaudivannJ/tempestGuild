@@ -36,3 +36,16 @@
   opacity: 1;
   transition: .3s;
 }
+.logoutButton {
+  background-color: #f44336; /* Cor de fundo vermelha */
+  color: white; /* Cor do texto branca */
+  border: none; /* Remove a borda padrão */
+  padding: 10px 20px; /* Adiciona algum espaçamento */
+  cursor: pointer; /* Adiciona um cursor de ponteiro */
+  font-size: 16px; /* Define o tamanho da fonte */
+  border-radius: 4px; /* Adiciona bordas arredondadas */
+}
+
+.logoutButton:hover {
+  background-color: #c62828; /* Cor de fundo ao passar o mouse */
+}
